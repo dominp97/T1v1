@@ -40,26 +40,42 @@
 
                 <TableRow
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" >
-
-
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp">
                     <Switch
                         android:id="@+id/switch2Estados"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/Estados2"
                         android:layout_weight="1"/>
-
-
                 </TableRow>
 
                 <TableRow
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp">
+
+                    <TextView
+                        android:id="@+id/textView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="@string/Cantidad"
+                        android:layout_weight="1"/>
+
+                    <EditText
+                        android:id="@+id/editText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:inputType="number"
+                        android:hint="@string/Cantidad2" />
+                </TableRow>
 
                 <TableRow
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
+                    android:layout_height="match_parent" >
+                    android:layout_marginTop="10dp">
+                </TableRow>
 
                 <TableRow
                     android:layout_width="match_parent"
