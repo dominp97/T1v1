@@ -10,7 +10,7 @@
     <!--START Cabecera / Toolbar-->
     <android.support.v7.widget.Toolbar
         xmlns:android="http://schemas.android.com/apk/res/android"
-        android:background="?attr/colorPrimary"
+        android:background="@color/blanco"
         android:layout_height="?attr/actionBarSize"
         android:layout_width="match_parent"
         android:id="@+id/toolBuena">
@@ -21,7 +21,8 @@
         <TextView android:id="@+id/toolbar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="T1v1"/>
+            android:text="T1v1"
+            />
     </android.support.v7.widget.Toolbar>
     <!--END Cabecera / Toolbar-->
 
@@ -75,11 +76,47 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent" >
                     android:layout_marginTop="10dp">
+
+                    <TextView
+                        android:id="@+id/textView2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/Adiccion"
+                        android:layout_weight="1"/>
+
+                    <RadioGroup
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/radioButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/SI" />
+
+                        <RadioButton
+                            android:id="@+id/radioButton2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/Quizas" />
+
+                        <RadioButton
+                            android:id="@+id/radioButton3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/No" />
+                    </RadioGroup>
                 </TableRow>
 
                 <TableRow
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
+                    android:layout_height="match_parent" >
+
+                </TableRow>
 
                 <TableRow
                     android:layout_width="match_parent"

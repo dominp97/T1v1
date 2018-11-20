@@ -3,4 +3,8 @@
     <string name="Estados2">¿Has consumido tomaco alguna vez?</string>
     <string name="Cantidad">¿Cantidad de veces que has consumido Tomaco?</string>
     <string name="Cantidad2">Escribe aqui el numero</string>
+    <string name="Adiccion">¿Consideras que crea adicción?</string>
+    <string name="SI">Si</string>
+    <string name="Quizas">Quien sabe</string>
+    <string name="No">No</string>
 </resources>
