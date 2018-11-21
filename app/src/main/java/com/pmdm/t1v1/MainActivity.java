@@ -1,7 +1,7 @@
 package com.pmdm.t1v1;
 
 import android.content.Context;
-import android.support.v4.app.FragmentManager;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.SparseBooleanArray;
@@ -142,4 +142,9 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
     }
     //endregion
 
+
+    public void easterEgg(View v){
+        Intent intent = new Intent(this, MainActivityVideo.class);
+        startActivity(intent);
+    }
 }
