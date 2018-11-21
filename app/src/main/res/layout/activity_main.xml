@@ -163,7 +163,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:text="Fecha de Nacimiento"
+                        android:text="@string/tFecha"
                         android:id="@+id/etFechaNacimiento"
                         android:layout_weight="1"/>
                     <Button
@@ -185,7 +185,7 @@
                         android:id="@+id/button2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Button"
+                        android:text="@string/tBoton"
                         android:onClick="click"/>
                 </TableRow>
             </TableLayout>
