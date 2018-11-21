@@ -6,13 +6,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
-
     <!--START Cabecera / Toolbar-->
     <android.support.v7.widget.Toolbar
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:background="@color/blanco"
         android:layout_height="?attr/actionBarSize"
         android:layout_width="match_parent"
+        android:elevation="4dp"
         android:id="@+id/toolBuena">
         <ImageView
             android:layout_width="wrap_content"
@@ -25,18 +25,17 @@
             />
     </android.support.v7.widget.Toolbar>
     <!--END Cabecera / Toolbar-->
-
-
         <ScrollView
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="55dp">
-
-
+            tools:context=".MainActivity">
             <TableLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
+                android:layout_height="wrap_content"
+                android:layout_marginTop="55dp">
                 <TableRow
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -45,10 +44,9 @@
                         android:id="@+id/switch2Estados"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/Estados2"
+                        android:text=""
                         android:layout_weight="1"/>
                 </TableRow>
-
                 <TableRow
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -58,7 +56,7 @@
                         android:id="@+id/textView"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:text="@string/Cantidad"
+                        android:text=""
                         android:layout_weight="1"/>
 
                     <EditText
@@ -67,46 +65,45 @@
                         android:layout_height="wrap_content"
                         android:ems="10"
                         android:inputType="number"
-                        android:hint="@string/Cantidad2" />
+                        android:hint="" />
                 </TableRow>
 
                 <TableRow
                     android:layout_width="match_parent"
                     android:layout_height="match_parent" >
-                    android:layout_marginTop="10dp">
-
                     <TextView
                         android:id="@+id/textView2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/Adiccion"
+                        android:text=""
                         android:layout_weight="1"/>
 
                     <RadioGroup
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal">
+                        android:orientation="horizontal"
+                        android:layout_weight="1">
 
                         <RadioButton
                             android:id="@+id/radioButton"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="@string/SI" />
+                            android:text="" />
 
                         <RadioButton
                             android:id="@+id/radioButton2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="@string/Quizas" />
+                            android:text="" />
 
                         <RadioButton
                             android:id="@+id/radioButton3"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="@string/No" />
+                            android:text="" />
                     </RadioGroup>
                 </TableRow>
 
@@ -114,7 +111,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1">
-
                     <ImageView
                         android:id="@+id/imageView"
                         android:layout_width="wrap_content"
@@ -122,8 +118,68 @@
                         android:layout_weight="1"
                         app:srcCompat="@mipmap/imagen" />
                 </TableRow>
+                <TableRow android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+                    <ListView
+                        android:id="@+id/listView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="139dp"
+                        android:choiceMode="multipleChoice" />
+                </TableRow>
+                <TableRow android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
 
+                    <Spinner
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/spinner"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true" />
+                    <TextView
+                        android:text="Aquí saldrá la ciudad que elijas"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
+                        android:textSize="30dp"
+                        android:id="@+id/ciudadSeleccionada" />
+                </TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+                    <EditText
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:text="Fecha de Nacimiento"
+                        android:id="@+id/etFechaNacimiento"
+                        android:layout_weight="1"/>
+                    <Button
+                        style="?android:attr/buttonStyleSmall"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="..."
+                        android:id="@+id/button"
+                        android:onClick="onClickFecha"
+                        android:layout_weight="1"/>
+                </TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginBottom="55dp">
 
+                    <Button
+                        android:id="@+id/button2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Button" />
+                </TableRow>
             </TableLayout>
         </ScrollView>
 
