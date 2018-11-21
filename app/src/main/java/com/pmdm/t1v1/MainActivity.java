@@ -15,11 +15,13 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
-
+import android.widget.Toast;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
-public class MainActivity extends AppCompatActivity implements ListView.OnItemClickListener, Spinner.OnItemSelectedListener, com.pmdm.datepicker.DialogoFecha.OnFechaSeleccionada{
+public class MainActivity extends AppCompatActivity implements ListView.OnItemClickListener,
+        Spinner.OnItemSelectedListener, DialogoFecha.OnFechaSeleccionada,
+        DialogoFragment.RespuestaDialogoFragment {
 
     String[] ciudades = { "Toledo", "Ciudad Real", "Albacete","Cuenca", "Guadalajara" };
 
@@ -113,7 +115,7 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
     }
 
     public void onClickFecha(View view) {
-        com.pmdm.datepicker.DialogoFecha d=new com.pmdm.datepicker.DialogoFecha();
+        DialogoFecha d=new DialogoFecha();
         d.show(getFragmentManager(),"Mi diálogo Fecha");
     }
 
@@ -124,5 +126,17 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
     }
 
 
+    //endregion
+
+    //region dialogoFragmet
+    public void click(View v){
+        DialogoFragment ds = new DialogoFragment();
+        ds.show(getFragmentManager(),"Mi diálogo Fecha");
+    }
+
+    @Override
+    public void onRespuesta(String s) {
+        Toast.makeText(getApplicationContext(),s,Toast.LENGTH_LONG ).show();
+    }
     //endregion
 }

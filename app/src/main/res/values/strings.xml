@@ -14,5 +14,7 @@
     <!-- TODO relleanr festivales-->
     <string name="tFecha">¿Cuando fue la ultima vez que fuiste a un concierto?</string>
     <string name="tBoton">Enviar :D</string>
+    <string name="bSi">Si</string>
+    <string name="bNo">No</string>
 
 </resources>
