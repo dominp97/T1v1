@@ -24,13 +24,12 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
         Spinner.OnItemSelectedListener, DialogoFecha.OnFechaSeleccionada,
         DialogoFragment.RespuestaDialogoFragment {
 
-    String[] ciudades = { "Toledo", "Ciudad Real", "Albacete","Cuenca", "Guadalajara" };
+    String[] ciudades = {"c1","c2","c3"};
 
-    String[] descripciones = { "La ciudad Imperial", "Qué gran ciudad",
-            "Ciudad gastronómica", "Ciudad encantada", "Ciudad colgante" };
+    String[] descripciones = { "d1", "d2",
+            "d3" };
 
-    int imagenes[] = { R.drawable.toledo, R.drawable.ciudadreal, R.drawable.albacete,
-            R.drawable.cuenca, R.drawable.guadalajara};
+    int imagenes[] = { R.mipmap.asound, R.mipmap.bbf, R.mipmap.vrock};
 
 
 
@@ -39,22 +38,26 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
-        String [] elementos={"Toledo","Ciudad Real","Cuenca","Guadalajara","Albacete"};
+        //region listView
+        String [] elementos={getString(R.string.c1), getString(R.string.c2), getString(R.string.c3)};
         ArrayAdapter<String> adaptador;
         ListView l=(ListView)findViewById(R.id.listView);
         l.setChoiceMode(AbsListView.CHOICE_MODE_MULTIPLE);
         adaptador=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_multiple_choice,elementos);
         l.setAdapter(adaptador);
         l.setOnItemClickListener(this);
+        //endregion
+        //region spinner
         Spinner selectorCiudades = (Spinner) findViewById(R.id.spinner);
         AdaptadorPersonalizado a=new AdaptadorPersonalizado(this, R.layout.lineaspiner, ciudades);
         selectorCiudades.setAdapter(a);
         selectorCiudades.setOnItemSelectedListener(this);
+        //endregion
     }
 
 
     //region codigo ya hecho
+    //region listView
     public void onItemClick(AdapterView<?> a, View view, int position, long id){
         //TextView t=(TextView)findViewById(R.id.textView3);
         ListView l=(ListView)findViewById(R.id.listView);
@@ -69,7 +72,9 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
             }
         //t.setText(seleccionado);
     }
+    //endregion
 
+    //region spinner
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id){
         TextView c=(TextView)view.findViewById(R.id.nombre);
         TextView seleccion=(TextView)findViewById(R.id.ciudadSeleccionada);
@@ -114,6 +119,7 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
 
         }
     }
+    //endregion
 
     public void onClickFecha(View view) {
         DialogoFecha d=new DialogoFecha();

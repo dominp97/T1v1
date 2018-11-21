@@ -44,7 +44,7 @@
                         android:id="@+id/switch2Estados"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text=""
+                        android:text="@string/tSwitch"
                         android:layout_weight="1"
                         android:onClick="easterEgg"/>
                 </TableRow>
@@ -57,7 +57,7 @@
                         android:id="@+id/textView"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:text=""
+                        android:text="@string/tDiscos"
                         android:layout_weight="1"/>
 
                     <EditText
@@ -66,66 +66,72 @@
                         android:layout_height="wrap_content"
                         android:ems="10"
                         android:inputType="number"
-                        android:hint="" />
-                </TableRow>
-
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" >
-                    <TextView
-                        android:id="@+id/textView2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text=""
+                        android:hint="@string/numero"
                         android:layout_weight="1"/>
+                </TableRow>
 
-                    <RadioGroup
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="left"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
+                        android:orientation="vertical"
                         android:layout_weight="1">
-
-                        <RadioButton
-                            android:id="@+id/radioButton"
+                        <TextView
+                            android:id="@+id/textView5"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="" />
-
-                        <RadioButton
-                            android:id="@+id/radioButton2"
+                            android:text="@string/tGrupo" />
+                        <RadioGroup
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="" />
+                            android:orientation="vertical"
+                            android:layout_gravity="center">
+                            <RadioButton
+                                android:id="@+id/radioButton6"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/g1" />
 
-                        <RadioButton
-                            android:id="@+id/radioButton3"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="" />
-                    </RadioGroup>
-                </TableRow>
+                            <RadioButton
+                                android:id="@+id/radioButton26"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/g2" />
 
+                            <RadioButton
+                                android:id="@+id/radioButton36"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/g3" />
+                            <RadioButton
+                                android:id="@+id/radioButton366"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/g4" />
+                        </RadioGroup>
+                    </LinearLayout>
+                    <ImageView
+                        android:id="@+id/imageView66"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        app:srcCompat="@mipmap/imagen"
+                        android:layout_weight="3"
+                        android:layout_gravity="right"/>
+                </LinearLayout>
                 <TableRow
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1">
-                    <ImageView
-                        android:id="@+id/imageView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="200dp"
-                        android:layout_weight="1"
-                        app:srcCompat="@mipmap/imagen" />
-                </TableRow>
-                <TableRow android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="50dp"
                     android:layout_weight="1">
                     <ListView
                         android:id="@+id/listView"
                         android:layout_width="wrap_content"
-                        android:layout_height="139dp"
+                        android:layout_height="160dp"
                         android:choiceMode="multipleChoice" />
                 </TableRow>
                 <TableRow android:layout_width="match_parent"
