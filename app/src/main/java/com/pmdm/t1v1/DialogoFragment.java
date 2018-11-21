@@ -30,9 +30,13 @@ public class DialogoFragment extends DialogFragment {
                 })
                 .setNegativeButton(R.string.bNo, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
+
                         DialogoFragment.this.getDialog().cancel();
                     }
                 });
+
+
+
         return builder.create();
     }
 

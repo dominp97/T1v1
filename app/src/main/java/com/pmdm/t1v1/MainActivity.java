@@ -1,6 +1,7 @@
 package com.pmdm.t1v1;
 
 import android.content.Context;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.SparseBooleanArray;
@@ -134,9 +135,11 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
         ds.show(getFragmentManager(),"Mi diálogo Fecha");
     }
 
+
     @Override
     public void onRespuesta(String s) {
         Toast.makeText(getApplicationContext(),s,Toast.LENGTH_LONG ).show();
     }
     //endregion
+
 }
