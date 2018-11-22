@@ -19,10 +19,6 @@ public class MainActivityVideo extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_video);
 
-        // Muestra el Activity en modo Landscape.
-        //this.setRequestedOrientation(
-        //        ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
-
         setUpVideoView();
     }
 

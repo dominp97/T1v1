@@ -24,10 +24,8 @@ import java.util.GregorianCalendar;
 public class MainActivity extends AppCompatActivity implements ListView.OnItemClickListener,
         Spinner.OnItemSelectedListener, DialogoFecha.OnFechaSeleccionada,
         DialogoFragment.RespuestaDialogoFragment {
-
-    String[] ciudades = {"c1","c2","c3"};
-
-    String[] descripciones = { "f1", "f2","f3" };
+    String[] ciudades;
+    String[] descripciones;
 
     int imagenes[] = { R.mipmap.asound, R.mipmap.bbf, R.mipmap.vrock};
 
@@ -39,9 +37,9 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         //este metodo para que no gire la app
         setContentView(R.layout.activity_main);
-
         //region listView
         String [] elementos={getString(R.string.c1), getString(R.string.c2), getString(R.string.c3)};
+
         ArrayAdapter<String> adaptador;
         ListView l=(ListView)findViewById(R.id.listView);
         l.setChoiceMode(AbsListView.CHOICE_MODE_MULTIPLE);
@@ -50,13 +48,16 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
         l.setOnItemClickListener(this);
         //endregion
         //region spinner
+
+        descripciones = new String[]{getString(R.string.locf3),getString(R.string.locf2),getString(R.string.locf1)};
+        ciudades = new String[]{ getString(R.string.f1), getString(R.string.f2),getString(R.string.f3) };
         Spinner selectorCiudades = (Spinner) findViewById(R.id.spinner);
         AdaptadorPersonalizado a=new AdaptadorPersonalizado(this, R.layout.lineaspiner, ciudades);
         selectorCiudades.setAdapter(a);
         selectorCiudades.setOnItemSelectedListener(this);
         //endregion
+        contador = 0;
     }
-
 
     //region codigo ya hecho
     //region listView
@@ -151,8 +152,15 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
     //endregion
 
 
+    //region easterEgg
+    private int contador;
     public void easterEgg(View v){
-        Intent intent = new Intent(this, MainActivityVideo.class);
-        startActivity(intent);
+        contador++;
+        if(contador > 5){
+            contador = 0;
+            Intent intent = new Intent(this, MainActivityVideo.class);
+            startActivity(intent);
+        }
     }
+    //endregion
 }

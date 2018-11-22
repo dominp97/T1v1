@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/ajustes"
+        android:title="Ajustes"
+        android:icon="@android:drawable/ic_menu_more"
+        android:orderInCategory="100"
+        app:showAsAction="ifRoom">
+        <menu> <!-- submenú -->
+            <item android:id="@+id/confFacturas"
+                android:title="Configuración de Facturas"
+                android:orderInCategory="1"/>
+        </menu>
+    </item>
+</menu>

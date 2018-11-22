@@ -17,7 +17,8 @@
         android:layout_marginTop="26dp"
         android:layout_alignBottom="@+id/imagenCiudad"
         android:layout_alignRight="@+id/nombre"
-        android:layout_alignEnd="@+id/nombre" />
+        android:layout_alignEnd="@+id/nombre"
+        android:layout_marginLeft="10dp"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -27,14 +28,14 @@
         android:id="@+id/nombre"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="10dp"/>
 
     <ImageView
         android:layout_width="200dp"
         android:layout_height="150sp"
         android:src="@mipmap/vrock"
         android:id="@+id/imagenCiudad"
-        android:layout_toEndOf="@+id/descripcion"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
