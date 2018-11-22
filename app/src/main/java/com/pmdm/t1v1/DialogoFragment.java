@@ -26,11 +26,12 @@ public class DialogoFragment extends DialogFragment {
                     @Override
                     public void onClick(DialogInterface dialog, int id) {
                         //TODO rellenar metodos para si
+                        respuesta.onRespuesta(getString(R.string.bSi));
                     }
                 })
                 .setNegativeButton(R.string.bNo, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
-
+                        respuesta.onRespuesta(getString(R.string.bNo));
                         DialogoFragment.this.getDialog().cancel();
                     }
                 });

@@ -16,6 +16,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Spinner;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 import java.util.Calendar;
@@ -26,10 +27,11 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
         DialogoFragment.RespuestaDialogoFragment {
     String[] ciudades;
     String[] descripciones;
-
     int imagenes[] = { R.mipmap.asound, R.mipmap.bbf, R.mipmap.vrock};
 
-
+    //region elementos
+    Switch pregRock;
+    //endregion
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +59,10 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
         selectorCiudades.setOnItemSelectedListener(this);
         //endregion
         contador = 0;
+
+        //region elementos
+        pregRock = findViewById(R.id.pregRock);
+        //endregion
     }
 
     //region codigo ya hecho
@@ -79,7 +85,7 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
 
     //region spinner
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id){
-        //TextView c=(TextView)view.findViewById(R.id.nombre);
+        TextView c=(TextView)view.findViewById(R.id.nombre);
         TextView seleccion=(TextView)findViewById(R.id.ciudadSeleccionada);
 
         //seleccion.setText(c.getText());
@@ -148,6 +154,14 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
     @Override
     public void onRespuesta(String s) {
         Toast.makeText(getApplicationContext(),s,Toast.LENGTH_LONG ).show();
+
+        if(s.equals(getString(R.string.bSi))){
+            //TODO obtener valores y crear objeto
+            //if((R.id.pregRock))
+        }else{
+            //TODO no hace nada xD
+        }
+
     }
     //endregion
 

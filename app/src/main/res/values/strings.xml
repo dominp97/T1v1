@@ -3,7 +3,7 @@
     <string name="tSwitch">¿Escuchas Rock?</string>
     <string name="tDiscos">¿Cuanrtos discos originales tienes?</string>
     <string name="numero">Escribe numero</string>
-    <string name="tGrupo">Selecciona de estos tu \n grupo favorito</string>
+    <string name="tGrupo">Selecciona de estos tu \n grupo preferido</string>
     <string name="g1">AC - DC</string>
     <string name="g2">Rammstein</string>
     <string name="g3">La fuga</string>
@@ -14,12 +14,11 @@
     <string name="c3">Highway to hell</string>
     <string name="tFestivales">¿A cual de estos festivales prefieres ir?</string>
     <string name="f1">Viña Rock</string>
-    <string name="f2">Barcelona_Beach_Festival</string>
-    <string name="f3">Arenal_Sound</string>
-    <string name="locf3">Borriana,Castellón</string>
-    <string name="locf2">Barcelona,ESPAÑA</string>
-    <string name="locf1">Villarrobledo,Albacete</string>
-    <!-- TODO relleanr festivales-->
+    <string name="f2">Barcelona Beach Festival</string>
+    <string name="f3">Arenal Sound</string>
+    <string name="locf3">Borriana, Castellón</string>
+    <string name="locf2">Barcelona, ESPAÑA</string>
+    <string name="locf1">Villarrobledo ,Albacete</string>
     <string name="tFecha">¿Cuando fue la ultima vez que fuiste a un concierto?</string>
     <string name="tBoton">Enviar :D</string>
     <string name="bSi">Si</string>

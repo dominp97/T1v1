@@ -61,7 +61,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginTop="10dp">
                     <Switch
-                        android:id="@+id/switch2Estados"
+                        android:id="@+id/pregRock"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/tSwitch"
@@ -148,11 +148,33 @@
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_weight="1">
+
+                    <TextView
+                        android:id="@+id/textView4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/tCanciones" />
+                </TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_weight="1">
                     <ListView
                         android:id="@+id/listView"
                         android:layout_width="wrap_content"
                         android:layout_height="160dp"
                         android:choiceMode="multipleChoice" />
+                </TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:id="@+id/textView2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/tFestivales" />
                 </TableRow>
                 <TableRow android:layout_width="match_parent"
                     android:layout_height="wrap_content"
