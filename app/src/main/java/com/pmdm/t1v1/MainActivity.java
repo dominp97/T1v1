@@ -2,6 +2,7 @@ package com.pmdm.t1v1;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.SparseBooleanArray;
@@ -26,8 +27,7 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
 
     String[] ciudades = {"c1","c2","c3"};
 
-    String[] descripciones = { "d1", "d2",
-            "d3" };
+    String[] descripciones = { "f1", "f2","f3" };
 
     int imagenes[] = { R.mipmap.asound, R.mipmap.bbf, R.mipmap.vrock};
 
@@ -36,6 +36,8 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        //este metodo para que no gire la app
         setContentView(R.layout.activity_main);
 
         //region listView
@@ -76,10 +78,10 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
 
     //region spinner
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id){
-        TextView c=(TextView)view.findViewById(R.id.nombre);
+        //TextView c=(TextView)view.findViewById(R.id.nombre);
         TextView seleccion=(TextView)findViewById(R.id.ciudadSeleccionada);
 
-        seleccion.setText(c.getText());
+        //seleccion.setText(c.getText());
     }
 
     public void onNothingSelected(AdapterView<?> parent){

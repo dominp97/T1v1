@@ -7,7 +7,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Albacete, qué gran ciudad!"
+        android:text="@string/f1"
         android:id="@+id/descripcion"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
@@ -23,7 +23,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Albacete"
+        android:text="@string/c1"
         android:id="@+id/nombre"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
@@ -32,7 +32,7 @@
     <ImageView
         android:layout_width="200dp"
         android:layout_height="150sp"
-        android:src="@drawable/albacete"
+        android:src="@mipmap/vrock"
         android:id="@+id/imagenCiudad"
         android:layout_toEndOf="@+id/descripcion"
         android:layout_alignParentTop="true"
