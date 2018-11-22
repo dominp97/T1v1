@@ -16,9 +16,9 @@
     <string name="f1">Viña Rock</string>
     <string name="f2">Barcelona Beach Festival</string>
     <string name="f3">Arenal Sound</string>
-    <string name="locf3">Borriana, Castellón</string>
-    <string name="locf2">Barcelona, ESPAÑA</string>
-    <string name="locf1">Villarrobledo ,Albacete</string>
+    <string name="locf3">Borriana,\n Castellón</string>
+    <string name="locf2">Barcelona,\n ESPAÑA</string>
+    <string name="locf1">Villarrobledo ,\nAlbacete</string>
     <string name="tFecha">¿Cuando fue la ultima vez que fuiste a un concierto?</string>
     <string name="tBoton">Enviar :D</string>
     <string name="bSi">Si</string>
