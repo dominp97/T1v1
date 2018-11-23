@@ -3,6 +3,9 @@ package com.pmdm.t1v1;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.media.AsyncPlayer;
+import android.media.AudioAttributes;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -214,6 +217,7 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
 
         }else{
             //TODO no hace nada xD
+            reproducir();
         }
     }
     //endregion
@@ -230,4 +234,15 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
         }
     }
     //endregion
+
+    public void reproducir(){
+       AsyncPlayer rep =  new AsyncPlayer("musicote");
+        AudioAttributes audioAttributes = new AudioAttributes.Builder().
+                setUsage(AudioAttributes.USAGE_MEDIA).
+                setContentType(AudioAttributes.CONTENT_TYPE_MUSIC).build();
+        String uriPath = "android.resource://" + getPackageName()
+                + "/" + R.raw.no;
+        Uri uri = Uri.parse(uriPath);
+       rep.play(getApplicationContext(), uri, false,audioAttributes);
+    }
 }
