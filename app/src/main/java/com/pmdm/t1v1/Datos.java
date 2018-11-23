@@ -1,16 +1,20 @@
 package com.pmdm.t1v1;
 
+import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 public class Datos {
     private boolean escuchaRock;
     private int discos;
-    private int grupoFavorito;
-    private String cancion;
+    private String grupoFavorito;
+    private ArrayList<String> cancion;
     private String festival;
-    private Date fechaConcierto;
+    private GregorianCalendar fechaConcierto;
 
-    public Datos(boolean escuchaRock, int discos, int grupoFavorito, String cancion, String festival, Date fechaConcierto) {
+    public Datos(boolean escuchaRock, int discos, String grupoFavorito, ArrayList<String> cancion,
+                 String festival, GregorianCalendar fechaConcierto) {
         this.escuchaRock = escuchaRock;
         this.discos = discos;
         this.grupoFavorito = grupoFavorito;
@@ -21,13 +25,20 @@ public class Datos {
 
     @Override
     public String toString() {
-        return "Datos{" +
+        String salida = "";
+        salida = "Datos{" +
                 "escuchaRock=" + escuchaRock +
                 ", discos=" + discos +
-                ", grupoFavorito=" + grupoFavorito +
-                ", cancion='" + cancion + '\'' +
-                ", festival='" + festival + '\'' +
-                ", fechaConcierto=" + fechaConcierto +
+                ", grupoFavorito=" + grupoFavorito ;
+                for(String can : cancion){
+                    salida += ", cancion='" + can + '\'' ;
+                }
+                salida += ", festival='" + festival + '\'' +
+                ", fechaConcierto=" + fechaConcierto.get(Calendar.DAY_OF_MONTH)+"/"+
+                        (fechaConcierto.get(Calendar.MONTH)+1)+"/"+
+                        fechaConcierto.get(Calendar.YEAR)+
                 '}';
+
+        return salida;
     }
 }

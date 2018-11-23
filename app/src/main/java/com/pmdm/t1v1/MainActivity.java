@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.SparseBooleanArray;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,6 +25,7 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.GregorianCalendar;
 
 public class MainActivity extends AppCompatActivity implements ListView.OnItemClickListener,
@@ -43,7 +45,7 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
     RadioGroup btnGrupo;
     ArrayList<String> canciones;
     String festival;
-    EditText fechaConcierto;
+    GregorianCalendar fecha;
     //endregion
 
     @Override
@@ -54,9 +56,8 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
         setContentView(R.layout.activity_main);
         //region listView
         elementos= new String[]{getString(R.string.c1), getString(R.string.c2), getString(R.string.c3)};
-
         ArrayAdapter<String> adaptador;
-        ListView l=(ListView)findViewById(R.id.listView);
+        ListView l=(ListView)findViewById(R.id.listaCanciones);
         l.setChoiceMode(AbsListView.CHOICE_MODE_MULTIPLE);
         adaptador=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_multiple_choice,elementos);
         l.setAdapter(adaptador);
@@ -75,6 +76,8 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
         //region inicializarVariables
         contador = 0;
         canciones = new ArrayList<String>();
+        festival = "";
+        fecha = new GregorianCalendar();
         //endregion
 
         //region elementos
@@ -110,7 +113,7 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
         TextView c=(TextView)view.findViewById(R.id.nombre);
         TextView seleccion=(TextView)findViewById(R.id.ciudadSeleccionada);
 
-        //seleccion.setText(c.getText());
+        festival = (c.getText().toString()); //TODO a lo mejor falla aqui el codigo
     }
 
     public void onNothingSelected(AdapterView<?> parent){
@@ -162,6 +165,7 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
     public void onResultadoFecha(GregorianCalendar fecha) {
         EditText et=(EditText)findViewById(R.id.txtFechaNacimiento);
         et.setText(fecha.get(Calendar.DAY_OF_MONTH)+"/"+(fecha.get(Calendar.MONTH)+1)+"/"+fecha.get(Calendar.YEAR));
+        this.fecha = fecha;
     }
 
     //endregion
@@ -184,12 +188,29 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
             //TODO obtener valores y crear objeto
             boolean rock;
             int numDisc;
+            String grupo;
             if(SwitchPregRock.isChecked()){
                 rock = true;
             }else{
                 rock = false;
             }
-            //numDisc = numDiscos
+            numDisc = Integer.parseInt(numDiscos.getText().toString());
+
+            if(btnGrupo.getCheckedRadioButtonId() == -1){
+                //no ha seleccionado nada
+                grupo = "no le gusta nada";
+            }else{
+                RadioButton rB = findViewById(btnGrupo.getCheckedRadioButtonId());
+                grupo = rB.getText().toString();
+            }
+            //TODO las canciones van directas, el festival y la fecha concierto tmbn
+
+            Datos datos = new Datos(rock, numDisc, grupo, canciones, festival, this.fecha);
+
+            Toast.makeText(getApplicationContext(),datos.toString(),
+                    Toast.LENGTH_LONG ).show();
+
+            Log.w("Resultado", datos.toString());
 
         }else{
             //TODO no hace nada xD
