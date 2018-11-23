@@ -25,12 +25,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="T1v1"
+                android:text="@string/app_name"
                 android:layout_weight="1"
                 />
 
             <ImageButton
-                android:id="@+id/imageButton"
+                android:id="@+id/btnMenu"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
@@ -74,14 +74,14 @@
                     android:layout_marginTop="10dp">
 
                     <TextView
-                        android:id="@+id/textView"
+                        android:id="@+id/txtPregDiscos"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:text="@string/tDiscos"
                         android:layout_weight="1"/>
 
                     <EditText
-                        android:id="@+id/editText"
+                        android:id="@+id/numDiscos"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:ems="10"
@@ -103,7 +103,7 @@
                         android:orientation="vertical"
                         android:layout_weight="1">
                         <TextView
-                            android:id="@+id/textView5"
+                            android:id="@+id/txtGrupo"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/tGrupo" />
@@ -111,34 +111,35 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:orientation="vertical"
-                            android:layout_gravity="center">
+                            android:layout_gravity="center"
+                            android:id="@+id/grupoDRadios">
                             <RadioButton
-                                android:id="@+id/radioButton6"
+                                android:id="@+id/btnACDC"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="@string/g1"
                                 android:checked="true"/>
 
                             <RadioButton
-                                android:id="@+id/radioButton26"
+                                android:id="@+id/btnRammsteins"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="@string/g2" />
 
                             <RadioButton
-                                android:id="@+id/radioButton36"
+                                android:id="@+id/btnLaFuga"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="@string/g3" />
                             <RadioButton
-                                android:id="@+id/radioButton366"
+                                android:id="@+id/btnExtremoduro"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="@string/g4" />
                         </RadioGroup>
                     </LinearLayout>
                     <ImageView
-                        android:id="@+id/imageView66"
+                        android:id="@+id/imageCentral"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         app:srcCompat="@mipmap/imagen"
@@ -151,7 +152,7 @@
                     android:layout_weight="1">
 
                     <TextView
-                        android:id="@+id/textView4"
+                        android:id="@+id/txtCanciones"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/tCanciones" />
@@ -161,7 +162,7 @@
                     android:layout_height="50dp"
                     android:layout_weight="1">
                     <ListView
-                        android:id="@+id/listView"
+                        android:id="@+id/listaCanciones"
                         android:layout_width="wrap_content"
                         android:layout_height="160dp"
                         android:choiceMode="multipleChoice" />
@@ -172,7 +173,7 @@
                     android:layout_weight="1">
 
                     <TextView
-                        android:id="@+id/textView2"
+                        android:id="@+id/txtFestivales"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/tFestivales" />
@@ -207,14 +208,14 @@
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceSmall"
                         android:text="@string/tFecha"
-                        android:id="@+id/etFechaNacimiento"
+                        android:id="@+id/txtFechaNacimiento"
                         android:layout_weight="1"/>
                     <Button
                         style="?android:attr/buttonStyleSmall"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="..."
-                        android:id="@+id/button"
+                        android:id="@+id/btnFecha"
                         android:onClick="onClickFecha"
                         android:layout_weight="1"/>
                 </TableRow>
@@ -225,7 +226,7 @@
                     android:layout_marginBottom="55dp">
 
                     <Button
-                        android:id="@+id/button2"
+                        android:id="@+id/btnEnviar"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/tBoton"

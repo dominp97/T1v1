@@ -16,6 +16,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.TextView;
@@ -28,17 +29,21 @@ import java.util.GregorianCalendar;
 public class MainActivity extends AppCompatActivity implements ListView.OnItemClickListener,
         Spinner.OnItemSelectedListener, DialogoFecha.OnFechaSeleccionada,
         DialogoFragment.RespuestaDialogoFragment {
+
+    //region vectoresDDatos
     String[] ciudades;
     String[] descripciones;
+    String [] elementos;
     int imagenes[] = { R.mipmap.asound, R.mipmap.bbf, R.mipmap.vrock};
+    //endregion
 
     //region elementos
     Switch SwitchPregRock;
-    EditText txtNumDiscos;
-    RadioButton btnGrupo;
+    EditText numDiscos;
+    RadioGroup btnGrupo;
     ArrayList<String> canciones;
     String festival;
-    String fechaConcierto;
+    EditText fechaConcierto;
     //endregion
 
     @Override
@@ -48,7 +53,7 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
         //este metodo para que no gire la app
         setContentView(R.layout.activity_main);
         //region listView
-        String [] elementos={getString(R.string.c1), getString(R.string.c2), getString(R.string.c3)};
+        elementos= new String[]{getString(R.string.c1), getString(R.string.c2), getString(R.string.c3)};
 
         ArrayAdapter<String> adaptador;
         ListView l=(ListView)findViewById(R.id.listView);
@@ -66,18 +71,25 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
         selectorCiudades.setAdapter(a);
         selectorCiudades.setOnItemSelectedListener(this);
         //endregion
+
+        //region inicializarVariables
         contador = 0;
+        canciones = new ArrayList<String>();
+        //endregion
 
         //region elementos
         SwitchPregRock = findViewById(R.id.pregRock);
+        numDiscos = findViewById(R.id.numDiscos);
+        btnGrupo = findViewById(R.id.grupoDRadios);
+
         //endregion
     }
 
-    //region codigo ya hecho
     //region listView
     public void onItemClick(AdapterView<?> a, View view, int position, long id){
         //TextView t=(TextView)findViewById(R.id.textView3);
-        ListView l=(ListView)findViewById(R.id.listView);
+        ListView l=(ListView)findViewById(R.id.listaCanciones);
+
         String seleccionado=new String();
         SparseBooleanArray checked = l.getCheckedItemPositions();
 
@@ -86,6 +98,8 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
                 seleccionado=seleccionado+
                         a.getItemAtPosition(checked.keyAt(i)).toString()
                         +";";
+                if(!canciones.contains(elementos[i]))
+                    canciones.add(elementos[i]);
             }
         //t.setText(seleccionado);
     }
@@ -138,6 +152,7 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
     }
     //endregion
 
+    //region campoFecha
     public void onClickFecha(View view) {
         DialogoFecha d=new DialogoFecha();
         d.show(getFragmentManager(),"Mi diálogo Fecha");
@@ -145,12 +160,12 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
 
     @Override
     public void onResultadoFecha(GregorianCalendar fecha) {
-        EditText et=(EditText)findViewById(R.id.etFechaNacimiento);
+        EditText et=(EditText)findViewById(R.id.txtFechaNacimiento);
         et.setText(fecha.get(Calendar.DAY_OF_MONTH)+"/"+(fecha.get(Calendar.MONTH)+1)+"/"+fecha.get(Calendar.YEAR));
     }
 
-
     //endregion
+
 
     //region dialogoFragmet
     public void click(View v){
@@ -161,15 +176,24 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
 
     @Override
     public void onRespuesta(String s) {
-        Toast.makeText(getApplicationContext(),s,Toast.LENGTH_LONG ).show();
+        //Toast.makeText(getApplicationContext(),s,Toast.LENGTH_LONG ).show();
 
         if(s.equals(getString(R.string.bSi))){
+            Toast.makeText(getApplicationContext(),"Gracias por tu interesante aportacion",
+                    Toast.LENGTH_LONG ).show();
             //TODO obtener valores y crear objeto
-            //if((R.id.pregRock))
+            boolean rock;
+            int numDisc;
+            if(SwitchPregRock.isChecked()){
+                rock = true;
+            }else{
+                rock = false;
+            }
+            //numDisc = numDiscos
+
         }else{
             //TODO no hace nada xD
         }
-
     }
     //endregion
 
