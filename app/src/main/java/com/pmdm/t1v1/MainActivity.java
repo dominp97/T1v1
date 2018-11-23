@@ -15,10 +15,13 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
@@ -30,7 +33,12 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
     int imagenes[] = { R.mipmap.asound, R.mipmap.bbf, R.mipmap.vrock};
 
     //region elementos
-    Switch pregRock;
+    Switch SwitchPregRock;
+    EditText txtNumDiscos;
+    RadioButton btnGrupo;
+    ArrayList<String> canciones;
+    String festival;
+    String fechaConcierto;
     //endregion
 
     @Override
@@ -61,7 +69,7 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
         contador = 0;
 
         //region elementos
-        pregRock = findViewById(R.id.pregRock);
+        SwitchPregRock = findViewById(R.id.pregRock);
         //endregion
     }
 
