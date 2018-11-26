@@ -235,8 +235,6 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
             rB.setChecked(false);
         }
         ArrayList<String> canciones;
-
-
         String festival;
         GregorianCalendar fecha;
     }
