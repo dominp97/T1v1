@@ -66,8 +66,8 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
         l.setAdapter(adaptador);
         l.setOnItemClickListener(this);
         //endregion
-        //region spinner
 
+        //region spinner
         descripciones = new String[]{getString(R.string.locf3),getString(R.string.locf2),getString(R.string.locf1)};
         ciudades = new String[]{ getString(R.string.f1), getString(R.string.f2),getString(R.string.f3) };
         Spinner selectorCiudades = (Spinner) findViewById(R.id.spinner);
@@ -197,7 +197,12 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
             }else{
                 rock = false;
             }
-            numDisc = Integer.parseInt(numDiscos.getText().toString());
+            if(numDiscos.getText().toString() == null){
+                numDisc = Integer.parseInt(numDiscos.getText().toString());
+            }else{
+                numDisc = 0;
+            }
+
 
             if(btnGrupo.getCheckedRadioButtonId() == -1){
                 //no ha seleccionado nada
@@ -222,6 +227,19 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
     }
     //endregion
 
+    public void limpiarValores(){
+        SwitchPregRock.setChecked(false);
+        numDiscos.setText("");
+        if(btnGrupo.getCheckedRadioButtonId() != -1){
+            RadioButton rB = findViewById(btnGrupo.getCheckedRadioButtonId());
+            rB.setChecked(false);
+        }
+        ArrayList<String> canciones;
+
+
+        String festival;
+        GregorianCalendar fecha;
+    }
 
     //region easterEgg
     private int contador;
@@ -233,7 +251,6 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
             startActivity(intent);
         }
     }
-    //endregion
 
     public void reproducir(){
        AsyncPlayer rep =  new AsyncPlayer("musicote");
@@ -245,4 +262,5 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
         Uri uri = Uri.parse(uriPath);
        rep.play(getApplicationContext(), uri, false,audioAttributes);
     }
+    //endregion
 }
