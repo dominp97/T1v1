@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     >
     <item android:id="@+id/ajustes"
-        android:title="Opciones"
+        android:title="@string/opciones"
         android:icon="@drawable/limpiar"
         android:orderInCategory="100"
         app:showAsAction="ifRoom">
