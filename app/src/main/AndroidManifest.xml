@@ -9,7 +9,7 @@
         android:logo="@mipmap/portada"
         android:roundIcon="@mipmap/portada"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme.NoActionBar">
+        android:theme="@style/AppTheme">
 
         <!-- android:theme="@style/Theme.AppCompat.Light.NoActionBar" -->
         <activity android:name=".MainActivity">

@@ -23,5 +23,5 @@
     <string name="tBoton">Enviar :D</string>
     <string name="bSi">Si</string>
     <string name="bNo">No</string>
-
+    <string name="limpiar">Limpiar valores</string>
 </resources>

@@ -6,11 +6,14 @@ import android.content.pm.ActivityInfo;
 import android.media.AsyncPlayer;
 import android.media.AudioAttributes;
 import android.net.Uri;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.util.SparseBooleanArray;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
@@ -40,6 +43,7 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
     String[] descripciones;
     String [] elementos;
     int imagenes[] = { R.mipmap.asound, R.mipmap.bbf, R.mipmap.vrock};
+    ActionBar actionBar;
     //endregion
 
     //region elementos
@@ -57,14 +61,8 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         //este metodo para que no gire la app
         setContentView(R.layout.activity_main);
-        //region listView
-        elementos= new String[]{getString(R.string.c1), getString(R.string.c2), getString(R.string.c3)};
-        ArrayAdapter<String> adaptador;
-        ListView l=(ListView)findViewById(R.id.listaCanciones);
-        l.setChoiceMode(AbsListView.CHOICE_MODE_MULTIPLE);
-        adaptador=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_multiple_choice,elementos);
-        l.setAdapter(adaptador);
-        l.setOnItemClickListener(this);
+        //region listViev
+        creaListView();
         //endregion
 
         //region spinner
@@ -89,9 +87,42 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
         btnGrupo = findViewById(R.id.grupoDRadios);
 
         //endregion
+
+        //region actionBar
+        actionBar = getSupportActionBar();
+        actionBar.setIcon(R.mipmap.portada);
+        actionBar.setDisplayShowHomeEnabled(true);
+        //endregion
     }
 
+    //region menu
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.my, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        Toast.makeText(getApplicationContext(),"Has seleccionado: "+item.getTitle(),Toast.LENGTH_LONG).show();
+        if(item.getTitle().equals(getString(R.string.limpiar)))
+            limpiarValores();
+        return super.onOptionsItemSelected(item);
+    }
+    //endregion
+
     //region listView
+    public void creaListView(){
+        elementos= new String[]{getString(R.string.c1), getString(R.string.c2), getString(R.string.c3)};
+        ArrayAdapter<String> adaptador;
+        ListView l=(ListView)findViewById(R.id.listaCanciones);
+        l.setChoiceMode(AbsListView.CHOICE_MODE_MULTIPLE);
+        adaptador=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_multiple_choice,elementos);
+        l.setAdapter(adaptador);
+        l.setOnItemClickListener(this);
+    }
+
+
     public void onItemClick(AdapterView<?> a, View view, int position, long id){
         //TextView t=(TextView)findViewById(R.id.textView3);
         ListView l=(ListView)findViewById(R.id.listaCanciones);
@@ -234,6 +265,7 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
             RadioButton rB = findViewById(btnGrupo.getCheckedRadioButtonId());
             rB.setChecked(false);
         }
+        creaListView();
         ArrayList<String> canciones;
         String festival;
         GregorianCalendar fecha;
