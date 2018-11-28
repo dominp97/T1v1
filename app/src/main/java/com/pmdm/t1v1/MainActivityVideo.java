@@ -3,6 +3,7 @@ package com.pmdm.t1v1;
 import android.content.pm.ActivityInfo;
 import android.media.MediaPlayer;
 import android.net.Uri;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -17,6 +18,8 @@ public class MainActivityVideo extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.hide();
         setContentView(R.layout.activity_main_video);
 
         setUpVideoView();

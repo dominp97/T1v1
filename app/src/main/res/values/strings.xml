@@ -25,4 +25,5 @@
     <string name="bNo">No</string>
     <string name="limpiar">Limpiar valores</string>
     <string name="opciones">Opciones</string>
+    <string name="enviar">¿Deseas enviar los datos para su posterior procesado?</string>
 </resources>

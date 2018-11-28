@@ -53,6 +53,9 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
     ArrayList<String> canciones;
     String festival;
     GregorianCalendar fecha;
+    Spinner selectorCiudades;
+    AdaptadorPersonalizado a;
+    EditText etFecha;
     //endregion
 
     @Override
@@ -68,8 +71,8 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
         //region spinner
         descripciones = new String[]{getString(R.string.locf3),getString(R.string.locf2),getString(R.string.locf1)};
         ciudades = new String[]{ getString(R.string.f1), getString(R.string.f2),getString(R.string.f3) };
-        Spinner selectorCiudades = (Spinner) findViewById(R.id.spinner);
-        AdaptadorPersonalizado a=new AdaptadorPersonalizado(this, R.layout.lineaspiner, ciudades);
+        selectorCiudades = (Spinner) findViewById(R.id.spinner);
+        a=new AdaptadorPersonalizado(this, R.layout.lineaspiner, ciudades);
         selectorCiudades.setAdapter(a);
         selectorCiudades.setOnItemSelectedListener(this);
         //endregion
@@ -85,7 +88,6 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
         SwitchPregRock = findViewById(R.id.pregRock);
         numDiscos = findViewById(R.id.numDiscos);
         btnGrupo = findViewById(R.id.grupoDRadios);
-
         //endregion
 
         //region actionBar
@@ -197,20 +199,18 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
 
     @Override
     public void onResultadoFecha(GregorianCalendar fecha) {
-        EditText et=(EditText)findViewById(R.id.txtFechaNacimiento);
-        et.setText(fecha.get(Calendar.DAY_OF_MONTH)+"/"+(fecha.get(Calendar.MONTH)+1)+"/"+fecha.get(Calendar.YEAR));
+        etFecha=(EditText)findViewById(R.id.txtFechaNacimiento);
+        etFecha.setText(fecha.get(Calendar.DAY_OF_MONTH)+"/"+(fecha.get(Calendar.MONTH)+1)+"/"+fecha.get(Calendar.YEAR));
         this.fecha = fecha;
     }
 
     //endregion
-
 
     //region dialogoFragmet
     public void click(View v){
         DialogoFragment ds = new DialogoFragment();
         ds.show(getFragmentManager(),"Mi diálogo Fecha");
     }
-
 
     @Override
     public void onRespuesta(String s) {
@@ -261,13 +261,13 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
     public void limpiarValores(){
         SwitchPregRock.setChecked(false);
         numDiscos.setText("");
-        if(btnGrupo.getCheckedRadioButtonId() != -1){
-            RadioButton rB = findViewById(btnGrupo.getCheckedRadioButtonId());
-            rB.setChecked(false);
-        }
+        btnGrupo.clearCheck();
         creaListView();
         String festival;
         GregorianCalendar fecha;
+        selectorCiudades.setAdapter(a);
+        selectorCiudades.setOnItemSelectedListener(this);
+        etFecha.setHint(R.string.tFecha);
     }
 
     //region easterEgg
