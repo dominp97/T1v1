@@ -203,11 +203,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1">
-                    <EditText
+                    <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:hint="@string/tFecha"
+                        android:text="@string/tFecha"
                         android:id="@+id/txtFechaNacimiento"
                         android:layout_weight="1"/>
                     <Button

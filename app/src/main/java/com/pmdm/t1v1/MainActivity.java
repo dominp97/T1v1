@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
     GregorianCalendar fecha;
     Spinner selectorCiudades;
     AdaptadorPersonalizado a;
-    EditText etFecha;
+    TextView etFecha;
     //endregion
 
     @Override
@@ -106,9 +106,10 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        Toast.makeText(getApplicationContext(),"Has seleccionado: "+item.getTitle(),Toast.LENGTH_LONG).show();
-        if(item.getTitle().equals(getString(R.string.limpiar)))
+        if(item.getTitle().equals(getString(R.string.limpiar))) {
+            Toast.makeText(getApplicationContext(), "Has seleccionado: " + item.getTitle(), Toast.LENGTH_LONG).show();
             limpiarValores();
+        }
         return super.onOptionsItemSelected(item);
     }
     //endregion
@@ -199,7 +200,7 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
 
     @Override
     public void onResultadoFecha(GregorianCalendar fecha) {
-        etFecha=(EditText)findViewById(R.id.txtFechaNacimiento);
+        etFecha=findViewById(R.id.txtFechaNacimiento);
         etFecha.setText(fecha.get(Calendar.DAY_OF_MONTH)+"/"+(fecha.get(Calendar.MONTH)+1)+"/"+fecha.get(Calendar.YEAR));
         this.fecha = fecha;
     }
@@ -246,11 +247,10 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
 
             Datos datos = new Datos(rock, numDisc, grupo, canciones, festival, this.fecha);
 
-            Toast.makeText(getApplicationContext(),datos.toString(),
-                    Toast.LENGTH_LONG ).show();
+            //Toast.makeText(getApplicationContext(),datos.toString(),
+            //        Toast.LENGTH_LONG ).show();
 
             Log.w("Resultado", datos.toString());
-
         }else{
             //TODO no hace nada xD
             reproducir();
@@ -265,9 +265,9 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
         creaListView();
         String festival;
         GregorianCalendar fecha;
-        selectorCiudades.setAdapter(a);
-        selectorCiudades.setOnItemSelectedListener(this);
-        etFecha.setHint(R.string.tFecha);
+        a=new AdaptadorPersonalizado(this, R.layout.lineaspiner, ciudades);
+        TextView etFecha = findViewById(R.id.txtFechaNacimiento);
+        etFecha.setText(R.string.tFecha);
     }
 
     //region easterEgg
