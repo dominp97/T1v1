@@ -25,7 +25,6 @@ public class DialogoFragment extends DialogFragment {
                 .setPositiveButton(R.string.bSi, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int id) {
-                        //TODO rellenar metodos para si
                         respuesta.onRespuesta(getString(R.string.bSi));
                     }
                 })

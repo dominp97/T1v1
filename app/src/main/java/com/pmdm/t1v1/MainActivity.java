@@ -150,7 +150,7 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
         TextView c=(TextView)view.findViewById(R.id.nombre);
         TextView seleccion=(TextView)findViewById(R.id.ciudadSeleccionada);
 
-        festival = (c.getText().toString()); //TODO a lo mejor falla aqui el codigo
+        festival = (c.getText().toString());
     }
 
     public void onNothingSelected(AdapterView<?> parent){
@@ -220,7 +220,6 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
         if(s.equals(getString(R.string.bSi))){
             Toast.makeText(getApplicationContext(),"Gracias por tu interesante aportacion",
                     Toast.LENGTH_LONG ).show();
-            //TODO obtener valores y crear objeto
             boolean rock;
             int numDisc;
             String grupo;
@@ -229,7 +228,7 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
             }else{
                 rock = false;
             }
-            if(numDiscos.getText().toString() == null){
+            if(numDiscos.getText().toString() != null){
                 numDisc = Integer.parseInt(numDiscos.getText().toString());
             }else{
                 numDisc = 0;
@@ -243,14 +242,16 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
                 RadioButton rB = findViewById(btnGrupo.getCheckedRadioButtonId());
                 grupo = rB.getText().toString();
             }
-            //TODO las canciones van directas, el festival y la fecha concierto tmbn
+
 
             Datos datos = new Datos(rock, numDisc, grupo, canciones, festival, this.fecha);
 
             //Toast.makeText(getApplicationContext(),datos.toString(),
-            //        Toast.LENGTH_LONG ).show();
+            //            //        Toast.LENGTH_LONG ).show();
 
             Log.w("Resultado", datos.toString());
+
+            limpiarValores();
         }else{
             //TODO no hace nada xD
             reproducir();
@@ -263,6 +264,7 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
         numDiscos.setText("");
         btnGrupo.clearCheck();
         creaListView();
+        canciones = new ArrayList<String>();
         String festival;
         GregorianCalendar fecha;
         a=new AdaptadorPersonalizado(this, R.layout.lineaspiner, ciudades);
