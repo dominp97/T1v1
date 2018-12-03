@@ -68,8 +68,6 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
     }
 
     private void inicializar(){
-
-
         //region listViev
         creaListView();
         //endregion
