@@ -73,12 +73,7 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
         //endregion
 
         //region spinner
-        descripciones = new String[]{getString(R.string.locf3),getString(R.string.locf2),getString(R.string.locf1)};
-        ciudades = new String[]{ getString(R.string.f1), getString(R.string.f2),getString(R.string.f3) };
-        selectorCiudades = (Spinner) findViewById(R.id.spinner);
-        a=new AdaptadorPersonalizado(this, R.layout.lineaspiner, ciudades);
-        selectorCiudades.setAdapter(a);
-        selectorCiudades.setOnItemSelectedListener(this);
+        crearSpinner();
         //endregion
 
         //region inicializarVariables
@@ -155,6 +150,15 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
     //endregion
 
     //region spinner
+    public void crearSpinner(){
+        descripciones = new String[]{getString(R.string.locf3),getString(R.string.locf2),getString(R.string.locf1)};
+        ciudades = new String[]{ getString(R.string.f1), getString(R.string.f2),getString(R.string.f3) };
+        selectorCiudades = (Spinner) findViewById(R.id.spinner);
+        a=new AdaptadorPersonalizado(this, R.layout.lineaspiner, ciudades);
+        selectorCiudades.setAdapter(a);
+        selectorCiudades.setOnItemSelectedListener(this);
+    }
+
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id){
         TextView c=(TextView)view.findViewById(R.id.nombre);
         TextView seleccion=(TextView)findViewById(R.id.ciudadSeleccionada);
