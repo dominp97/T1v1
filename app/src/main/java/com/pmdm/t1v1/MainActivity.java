@@ -64,6 +64,12 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         //este metodo para que no gire la app
         setContentView(R.layout.activity_main);
+        inicializar();
+    }
+
+    private void inicializar(){
+
+
         //region listViev
         creaListView();
         //endregion
@@ -260,16 +266,7 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
     //endregion
 
     public void limpiarValores(){
-        SwitchPregRock.setChecked(false);
-        numDiscos.setText("");
-        btnGrupo.clearCheck();
-        creaListView();
-        canciones = new ArrayList<String>();
-        String festival;
-        GregorianCalendar fecha;
-        a=new AdaptadorPersonalizado(this, R.layout.lineaspiner, ciudades);
-        TextView etFecha = findViewById(R.id.txtFechaNacimiento);
-        etFecha.setText(R.string.tFecha);
+        inicializar();
     }
 
     //region easterEgg
