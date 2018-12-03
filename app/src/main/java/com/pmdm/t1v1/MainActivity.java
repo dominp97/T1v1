@@ -92,8 +92,13 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
 
         //region elementos
         SwitchPregRock = findViewById(R.id.pregRock);
+        SwitchPregRock.setChecked(false);
         numDiscos = findViewById(R.id.numDiscos);
+        numDiscos.setText("");
         btnGrupo = findViewById(R.id.grupoDRadios);
+        btnGrupo.clearCheck();
+        etFecha = findViewById(R.id.txtFechaNacimiento);
+        etFecha.setText(R.string.tFecha);
         //endregion
 
         //region actionBar
@@ -101,6 +106,7 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
         actionBar.setIcon(R.mipmap.portada);
         actionBar.setDisplayShowHomeEnabled(true);
         //endregion
+
     }
 
     //region menu
@@ -211,20 +217,18 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
         this.fecha = fecha;
     }
 
-    //endregion
-
-    //region dialogoFragmet
     public void click(View v){
         DialogoFragment ds = new DialogoFragment();
         ds.show(getFragmentManager(),"Mi diálogo Fecha");
     }
+    //endregion
 
+    //region dialogoFragmet
     @Override
     public void onRespuesta(String s) {
-        //Toast.makeText(getApplicationContext(),s,Toast.LENGTH_LONG ).show();
 
         if(s.equals(getString(R.string.bSi))){
-            Toast.makeText(getApplicationContext(),"Gracias por tu interesante aportacion",
+            Toast.makeText(getApplicationContext(),R.string.aportacion,
                     Toast.LENGTH_LONG ).show();
             boolean rock;
             int numDisc;
@@ -234,7 +238,7 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
             }else{
                 rock = false;
             }
-            if(numDiscos.getText().toString() != null){
+            if(!numDiscos.getText().toString().equals("")){
                 numDisc = Integer.parseInt(numDiscos.getText().toString());
             }else{
                 numDisc = 0;
