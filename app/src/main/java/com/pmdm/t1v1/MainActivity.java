@@ -135,7 +135,6 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
         l.setOnItemClickListener(this);
     }
 
-
     public void onItemClick(AdapterView<?> a, View view, int position, long id){
         //TextView t=(TextView)findViewById(R.id.textView3);
         ListView l=(ListView)findViewById(R.id.listaCanciones);
@@ -214,14 +213,14 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
         etFecha.setText(fecha.get(Calendar.DAY_OF_MONTH)+"/"+(fecha.get(Calendar.MONTH)+1)+"/"+fecha.get(Calendar.YEAR));
         this.fecha = fecha;
     }
-
-    public void click(View v){
-        DialogoFragment ds = new DialogoFragment();
-        ds.show(getFragmentManager(),"Mi diálogo Fecha");
-    }
     //endregion
 
     //region dialogoFragmet
+    public void click(View v){
+        DialogoFragment ds = new DialogoFragment();
+        ds.show(getFragmentManager(),"Mi diálogo Personalizado");
+    }
+
     @Override
     public void onRespuesta(String s) {
 
@@ -245,7 +244,7 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
 
             if(btnGrupo.getCheckedRadioButtonId() == -1){
                 //no ha seleccionado nada
-                grupo = "no le gusta nada";
+                grupo = getString(R.string.nada);
             }else{
                 RadioButton rB = findViewById(btnGrupo.getCheckedRadioButtonId());
                 grupo = rB.getText().toString();

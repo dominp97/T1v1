@@ -27,4 +27,5 @@
     <string name="opciones">Opciones</string>
     <string name="enviar">¿Deseas enviar los datos para su posterior procesado?</string>
     <string name="aportacion">Gracias por tu interesante aportacion</string>
+    <string name="nada">No le gusta nada</string>
 </resources>
